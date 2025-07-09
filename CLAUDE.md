@@ -1,35 +1,27 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
-## Project Status
-
-Repository for exploring Claude Code CLI capabilities and developing external tools to enhance its functionality.
+External tools to enhance Claude Code CLI capabilities.
 
 ## Available Tools
 
 ### Text-to-Speech (TTS)
-- **Location**: `tools/tts/tts.py`
-- **Usage**: `python3 tools/tts/tts.py "Your message here"`
-- **Purpose**: High-quality TTS with Microsoft Aria Neural voice (online) and macOS fallback (offline)
-- **Installation**: `pip install edge-tts pyobjc-framework-AVFoundation`
-- **Hook Integration**: Perfect for Claude Code hooks to provide audio notifications
+- **Script**: `tools/tts/tts.py`
+- **Usage**: `python3 tools/tts/tts.py "message"`
+- **Features**: Microsoft Aria Neural voice (online) + macOS fallback (offline)
 
-## Development Commands
+### Speech-to-Text (STT)
+- **Script**: `tools/stt/stt.py`
+- **Usage**: `python3 tools/stt/stt.py --record 5`
+- **Features**: Local Whisper tiny model + AssemblyAI fallback
 
-### TTS Tool Testing
-- `python3 tools/tts/tts.py --list-voices` - List available voices
-- `python3 tools/tts/tts.py "test message"` - Test TTS functionality
-- `python3 tools/tts/tts.py "test message" 7` - Test with specific fallback voice
+## Quick Commands
 
-## Architecture Overview
+```bash
+# TTS
+python3 tools/tts/tts.py "Hello Peter"
 
-### Project Structure
+# STT
+python3 tools/stt/stt.py --record 5
+python3 tools/stt/stt.py audio.wav
+python3 tools/stt/stt.py --live
 ```
-tools/
-├── tts/
-│   ├── README.md
-│   └── tts.py
-```
-
-Each tool is self-contained in its own directory with installation instructions and documentation.

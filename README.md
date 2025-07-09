@@ -11,19 +11,21 @@ This repository contains tools that extend Claude Code's functionality, particul
 ### 🔊 Text-to-Speech (TTS)
 **Location**: `tools/tts/`
 
-A combined TTS solution that provides high-quality speech synthesis with automatic fallback.
+High-quality speech synthesis with Microsoft Aria Neural voice (online) and macOS fallback (offline).
 
-**Features**:
-- Microsoft Aria Neural voice (online)
-- macOS native voices (offline fallback)
-- Automatic internet detection
-- Perfect for Claude Code hooks
-
-**Quick Start**:
 ```bash
-cd tools/tts
 pip install edge-tts pyobjc-framework-AVFoundation
-python3 tts.py "Hello from Claude Code"
+python3 tools/tts/tts.py "Hello from Claude Code"
+```
+
+### 🎤 Speech-to-Text (STT)
+**Location**: `tools/stt/`
+
+Local speech recognition using Whisper tiny model with AssemblyAI fallback.
+
+```bash
+pip install openai-whisper pyaudio assemblyai keyboard
+python3 tools/stt/stt.py --record 5
 ```
 
 ## Installation
@@ -75,9 +77,12 @@ ClaudeCodeTools/
 ├── README.md
 ├── CLAUDE.md
 ├── tools/
-│   └── tts/
+│   ├── tts/
+│   │   ├── README.md
+│   │   └── tts.py
+│   └── stt/
 │       ├── README.md
-│       └── tts.py
+│       └── stt.py
 ```
 
 ### Adding New Tools
